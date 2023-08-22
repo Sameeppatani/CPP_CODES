@@ -65,9 +65,15 @@ node * insertnode(node*head,int n,int data){
 }
 return head;
 }
-void deletenode(node*head,int n){
+node*deletenode(node*head,int n){
     int i=0;
     node*temp=head;
+    if(n==0){
+        node*a=head;
+        head=head->next;
+        delete a;
+        return head;
+    }
     while(i<n-1 && temp!=NULL){
             temp=temp->next;
         i++;
@@ -78,7 +84,7 @@ void deletenode(node*head,int n){
         delete a;
 
     }
-
+    return head;
 
 }
 
@@ -88,7 +94,7 @@ int main(){
 
     head=insertnode(head,5,1000);
     print(head);
-    deletenode(head,1);
+    head=deletenode(head,0);
     print(head);
 
 
