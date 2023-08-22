@@ -24,28 +24,30 @@ node*takeinput(){
     int data;
     cin>>data;
     node*head=NULL;
+    node*tail=NULL;
     while(data!=-1){
         node*newnode=new node(data);
         if(head==NULL){
 
+        tail=newnode;
         head=newnode;
 
         }else{
-            node*temp=head;
+            //here we have maintain tail pointer
+            tail->next=newnode;
+            tail=tail->next;
 
-         while(temp->next!=NULL)
-            {
-            temp=temp->next;
-         }
-         temp->next=newnode;
+
          }
         cin>>data;
     }
     return head;
 
 }
+
 int main(){
     node*head=takeinput();
     print(head);
+
 
 }
